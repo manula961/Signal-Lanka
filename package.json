@@ -1,12 +1,13 @@
 {
-  "name": "sri-lanka-communication-journey",
-  "version": "11.0.0",
+  "name": "signal-lanka",
+  "version": "12.0.0",
   "private": true,
-  "description": "Exhibition-focused interactive museum with a Communication Time Machine and 60-second challenge.",
+  "description": "Signal Lanka — bilingual interactive museum about the evolution of communication in Sri Lanka.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "node --watch server.js"
+    "dev": "node --watch server.js",
+    "check": "node --check server.js && node --check public/museum.js"
   },
   "engines": {
     "node": ">=18"
