@@ -1,230 +1,166 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#17142b">
-  <meta name="description" content="Signal Lanka — interactive bilingual exhibition on the evolution of communication in Sri Lanka.">
-  <title>Signal Lanka — Communication Museum</title>
-  <link rel="stylesheet" href="/museum.css?v=12.0.1">
-  <script src="/museum.js?v=12.0.1" defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#080b12" />
+  <meta name="description" content="Evolution of Communication — interactive bilingual exhibition experience." />
+  <title>Evolution of Communication | සන්නිවේදනයේ විකාශනය</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Sinhala:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <a class="skip-link" href="#main" data-i="skip">Skip to main content</a>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
 
-  <header>
-    <a class="brand" href="#home" aria-label="Signal Lanka home">
-      <b aria-hidden="true">ස</b>
-      <span><strong>Signal Lanka</strong><small data-i="museum">Communication Museum</small></span>
+  <header class="site-header" id="top">
+    <a class="brand" href="#hero" aria-label="Evolution of Communication home">
+      <span class="brand-mark">EC</span>
+      <span class="brand-copy"><b>Evolution</b><small>of Communication</small></span>
     </a>
-    <nav aria-label="Primary navigation">
-      <a href="#attractions" data-i="play">Play</a>
-      <a href="#ancient" data-i="ancient">Ancient</a>
-      <a href="#middle" data-i="middle">Middle</a>
-      <a href="#modern" data-i="modern">Modern</a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#timeline">Timeline</a>
+      <a href="#explore">Explore</a>
+      <a href="#tools">Tools</a>
+      <a href="#quiz">Quiz</a>
     </nav>
-    <button id="lang" type="button" aria-label="Switch language">සිංහල</button>
+    <div class="header-actions">
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language"><span class="active">EN</span><span>සිං</span></button>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
   </header>
 
-  <main id="main">
-    <section class="hero" id="home">
-      <div>
-        <p class="tag" data-i="tag">Interactive digital museum · Sri Lanka</p>
-        <h1 data-i="hero">How messages moved through time.</h1>
-        <p data-i="lead">Travel through three communication eras and experience how signals became records, mass media and intelligent networks.</p>
-        <div class="actions">
-          <button type="button" data-open="time" data-i="timeBtn">Enter the Time Machine</button>
-          <button type="button" data-open="challenge" data-i="challengeBtn">Start 60s Challenge</button>
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="#timeline">Timeline</a><a href="#explore">Explore</a><a href="#tools">Tools</a><a href="#quiz">Quiz</a>
+  </div>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-orbit orbit-a" aria-hidden="true"></div>
+      <div class="hero-orbit orbit-b" aria-hidden="true"></div>
+      <div class="hero-content reveal">
+        <p class="eyebrow" data-en="INTERACTIVE EXHIBITION · 2026" data-si="අන්තර්ක්‍රියාකාරී ප්‍රදර්ශනය · 2026">INTERACTIVE EXHIBITION · 2026</p>
+        <h1><span data-en="The story of" data-si="කථාව">The story of</span><br><em data-en="human connection." data-si="මානව සම්බන්ධතාවයේ.">human connection.</em></h1>
+        <p class="hero-lead" data-en="From marks on cave walls to intelligent networks — explore the inventions that transformed how people share ideas, knowledge and emotion." data-si="ගුහා බිත්තිවල සලකුණු වලින් බුද්ධිමත් ජාල දක්වා — මිනිසුන් අදහස්, දැනුම සහ හැඟීම් හුවමාරු කරන ආකාරය වෙනස් කළ නවෝත්පාදන සොයා බලන්න.">From marks on cave walls to intelligent networks — explore the inventions that transformed how people share ideas, knowledge and emotion.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#timeline"><span data-en="Start the journey" data-si="ගමන අරඹන්න">Start the journey</span><b>↓</b></a>
+          <a class="btn ghost" href="#quiz"><span data-en="Test your knowledge" data-si="ඔබේ දැනුම පරීක්ෂා කරන්න">Test your knowledge</span></a>
         </div>
       </div>
-      <div class="hero-photos" aria-label="Communication history images">
-        <figure class="hero-photo hero-photo-a">
-          <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Thanthirimale_cave_painting.jpg?width=900" width="900" height="675" alt="Historic cave painting at Thanthirimale, Sri Lanka" data-fallback="Ancient communication image unavailable">
-          <figcaption data-i="heroAncientCaption">Ancient visual record · Thanthirimale</figcaption>
-        </figure>
-        <figure class="hero-photo hero-photo-b">
-          <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/LotusTower_Colombo.jpg?width=900" width="900" height="675" alt="Lotus Tower in Colombo" data-fallback="Modern communication image unavailable">
-          <figcaption data-i="heroModernCaption">Modern communication landscape · Colombo</figcaption>
-        </figure>
-        <div class="era-arrow" aria-hidden="true">ANCIENT <i>→</i> MIDDLE <i>→</i> MODERN</div>
-      </div>
-    </section>
 
-    <section id="attractions">
-      <p class="tag" data-i="attractions">Exhibition attractions</p>
-      <h2 data-i="transmit">Don’t just read history. Transmit it.</h2>
-      <div class="cards">
-        <article>
-          <b>01</b>
-          <h3 data-i="tm">Communication Time Machine</h3>
-          <p data-i="tmDesc">Send one message through Ancient, Middle and Modern communication systems.</p>
-          <button type="button" data-open="time" data-i="launch">Launch →</button>
-        </article>
-        <article>
-          <b>02</b>
-          <h3 data-i="challenge">60-second Communication Challenge</h3>
-          <p data-i="challengeDesc">Answer three era questions before the clock reaches zero.</p>
-          <button type="button" data-open="challenge" data-i="start">Start →</button>
-        </article>
-      </div>
-    </section>
-
-    <section id="ancient" class="era ancient" tabindex="-1">
-      <div class="era-copy">
-        <p class="tag" data-i="ancientTag">01 · ANCIENT COMMUNICATION</p>
-        <h2 data-i="ancientEra">Ancient Era</h2>
-        <h3 data-i="memory">Signals become memory.</h3>
-        <p data-i="ancientP1">Before electronic media, communication depended on human senses and physical materials. Voice, gesture and visible signals could carry urgent meaning, while marks, inscriptions and manuscripts allowed information to remain after the original speaker was gone.</p>
-        <p data-i="ancientP2">Rock and cave imagery demonstrates the power of visual marks as durable cultural traces. Later written traditions moved information onto prepared surfaces, making knowledge easier to preserve, organize and pass between generations.</p>
-      </div>
-      <div class="photo-grid">
-        <figure class="photo-card tall">
-          <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Thanthirimale_cave_painting.jpg?width=1200" width="1200" height="900" alt="Thanthirimale cave painting in Sri Lanka" data-fallback="Thanthirimale cave painting unavailable">
-          <figcaption><b data-i="ancientPhoto1Title">Thanthirimale cave painting</b><span data-i="ancientPhoto1Desc">A surviving visual trace from Thanthirimale in Sri Lanka. Images and marks show how meaning can be fixed onto a surface instead of existing only as a spoken or performed signal.</span></figcaption>
-        </figure>
-        <figure class="photo-card">
-          <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Thanthirimale_Cave_Painting_ගුහා_සිතුවම්_කණ්ඩායම්_සම්පිණ්ඩනය.jpg?width=900" width="900" height="675" alt="Group of historical cave paintings at Thanthirimale" data-fallback="Historic cave-painting image unavailable">
-          <figcaption><b data-i="ancientPhoto2Title">A vocabulary of visual marks</b><span data-i="ancientPhoto2Desc">Multiple figures and marks can be viewed together as evidence of visual expression. Unlike a voice or gesture, a mark on rock can remain visible long after the moment of creation.</span></figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="artifact-story ancient-story">
-      <div class="artifact-copy">
-        <p class="tag" data-i="rockToManuscript">FROM ROCK TO MANUSCRIPT</p>
-        <h2 data-i="portableTitle">Writing makes knowledge portable.</h2>
-        <p data-i="portableDesc">Palm-leaf manuscripts transformed natural material into a compact writing system. Prepared leaves could be inscribed, arranged in sequence and bound together. Sri Lankan examples survive in museum and library collections, preserving religious, literary, medical and other forms of knowledge.</p>
-        <div class="fact-row">
-          <span><b data-i="material">Material</b><span data-i="palmLeaf">Palm leaf</span></span>
-          <span><b data-i="method">Method</b><span data-i="incised">Incised writing</span></span>
-          <span><b data-i="form">Form</b><span data-i="folios">Bound folios</span></span>
+      <div class="hero-visual reveal delay-1" aria-label="Visual journey from early signals to artificial intelligence">
+        <div class="signal-path" aria-hidden="true"></div>
+        <div class="signal-core">
+          <span class="core-rings"></span>
+          <strong>6,000+</strong>
+          <small>YEARS OF SIGNALS</small>
         </div>
+        <div class="signal-node node-cave"><span>◒</span><b>CAVE</b><small>visual marks</small></div>
+        <div class="signal-node node-write"><span>✎</span><b>WRITE</b><small>stored ideas</small></div>
+        <div class="signal-node node-print"><span>▤</span><b>PRINT</b><small>mass copies</small></div>
+        <div class="signal-node node-radio"><span>⌁</span><b>RADIO</b><small>broadcast</small></div>
+        <div class="signal-node node-web"><span>◎</span><b>WEB</b><small>global network</small></div>
+        <div class="signal-node node-ai"><span>✦</span><b>AI</b><small>intelligent media</small></div>
       </div>
-      <div class="artifact-gallery">
-        <figure>
-          <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Palm-leaf_manuscript.jpg?width=1200" width="1200" height="900" alt="Palm-leaf manuscripts at Batticaloa museum" data-fallback="Palm-leaf manuscript image unavailable">
-          <figcaption><b data-i="palmTitle">Palm-leaf manuscripts · Batticaloa Museum</b><span data-i="palmDesc">This photograph documents palm-leaf manuscripts in Batticaloa, Sri Lanka. The long narrow format is characteristic of the medium.</span></figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Ola_manuscript_on_medical_subjects,_Sri_Lanka,_19th_century_-_Royal_Ontario_Museum_-_DSC09637.JPG?width=1000" width="1000" height="750" alt="Nineteenth century Sri Lankan ola medical manuscript" data-fallback="Ola manuscript image unavailable">
-          <figcaption><b data-i="olaTitle">19th-century medical ola manuscript</b><span data-i="olaDesc">A Sri Lankan manuscript on medical subjects, now exhibited by the Royal Ontario Museum, showing how specialist knowledge could be stored on prepared leaves.</span></figcaption>
-        </figure>
+      <div class="hero-stats reveal delay-1">
+        <div><strong>5</strong><span data-en="eras" data-si="යුග">eras</span></div>
+        <div><strong>6,000+</strong><span data-en="years of change" data-si="වසරක විකාශනය">years of change</span></div>
+        <div><strong>1</strong><span data-en="connected world" data-si="සම්බන්ධිත ලෝකය">connected world</span></div>
+      </div>
+      <div class="scroll-hint" aria-hidden="true"><span></span>SCROLL TO EXPLORE</div>
+    </section>
+
+    <section class="timeline-intro section" id="timeline">
+      <div class="section-heading reveal">
+        <p class="eyebrow" data-en="HISTORICAL TIMELINE" data-si="ඓතිහාසික කාලරේඛාව">HISTORICAL TIMELINE</p>
+        <h2 data-en="Five eras. One continuous evolution." data-si="යුග පහක්. එකම අඛණ්ඩ විකාශනයක්.">Five eras. One continuous evolution.</h2>
+        <p data-en="Move through the milestones that turned communication from local and temporary into instant, global and intelligent." data-si="සන්නිවේදනය තාවකාලික හා ප්‍රාදේශීය තත්ත්වයෙන් ක්ෂණික, ගෝලීය සහ බුද්ධිමත් මට්ටමකට ගෙන ආ ප්‍රධාන සන්ධිස්ථාන හරහා ගමන් කරන්න.">Move through the milestones that turned communication from local and temporary into instant, global and intelligent.</p>
+      </div>
+      <div class="timeline-rail reveal delay-1" id="timelineRail">
+        <a href="#era-1" class="rail-node active"><b>01</b><span>Early</span></a>
+        <a href="#era-2" class="rail-node"><b>02</b><span>Writing</span></a>
+        <a href="#era-3" class="rail-node"><b>03</b><span>Print</span></a>
+        <a href="#era-4" class="rail-node"><b>04</b><span>Electronic</span></a>
+        <a href="#era-5" class="rail-node"><b>05</b><span>Digital + AI</span></a>
       </div>
     </section>
 
-    <section class="image-break ancient-break" aria-hidden="true"><div><span>FROM SIGNAL</span><strong>TO STORED KNOWLEDGE</strong></div></section>
-
-    <section id="middle" class="era middle" tabindex="-1">
-      <div class="era-copy">
-        <p class="tag" data-i="middleTag">02 · MASS COMMUNICATION</p>
-        <h2 data-i="middleEra">Middle Era</h2>
-        <h3 data-i="mass">Messages become mass media.</h3>
-        <p data-i="middleP1">Printing changed the economics of communication: instead of producing one manuscript at a time, mechanical systems could reproduce the same page for many readers. Newspapers, official publications, books and educational material could circulate repeatedly.</p>
-        <p data-i="middleP2">Electrical communication changed the relationship between distance and delay. Telegraph systems encoded text as electrical signals, telephones carried voice through circuits, and radio made it possible for one live transmission to reach a large audience.</p>
-      </div>
-      <div class="photo-grid">
-        <figure class="photo-card wide">
-          <img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/55450524e4b0ba188d40f223/1610638453792-9GMVV17VEV5QK6QD5JAI/1952-Ceylon.jpg?format=1000w" width="1000" height="750" alt="Ceylon Government Press Linotype machinery at the 1952 Colombo Plan Exhibition" data-fallback="Ceylon Government Press image unavailable">
-          <figcaption><b data-i="pressTitle">Ceylon Government Press · 1952</b><span data-i="pressDesc">Linotype machines displayed at the Colombo Plan Exhibition illustrate the industrial machinery behind large-scale typesetting and printing. Mechanical production helped turn communication into a repeatable mass process.</span></figcaption>
-        </figure>
-        <figure class="photo-card">
-          <img loading="lazy" src="https://assets.roar.media/Life/2018/01/Radio_ceylon_003.jpg?w=900" width="900" height="675" alt="Radio Ceylon studio session" data-fallback="Radio Ceylon image unavailable">
-          <figcaption><b data-i="radioTitle">Inside Radio Ceylon</b><span data-i="radioDesc">A studio scene with announcer, script and microphone captures broadcasting as a coordinated production process. Radio allowed the human voice to move from a room to a mass listening audience.</span></figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="artifact-story middle-story">
-      <div class="artifact-copy">
-        <p class="tag" data-i="scaleTag">THE SCALE REVOLUTION</p>
-        <h2 data-i="scaleTitle">One message. Thousands of receivers.</h2>
-        <p data-i="scaleDesc">Print and broadcast solved different parts of the same problem. Printing created many durable physical copies; radio created a shared live signal. Together they helped establish communication systems capable of addressing publics rather than only individuals.</p>
-        <div class="fact-row">
-          <span><b data-i="print">Print</b><span data-i="repeatCopies">Repeatable copies</span></span>
-          <span><b data-i="telegraph">Telegraph</b><span data-i="codedText">Coded electrical text</span></span>
-          <span><b data-i="radio">Radio</b><span data-i="oneMany">One-to-many audio</span></span>
+    <section class="eras" id="explore">
+      <article class="era era-early" id="era-1" data-era="01">
+        <div class="era-media reveal">
+          <img src="https://images.unsplash.com/photo-1564399579883-451a5d44ec08?auto=format&fit=crop&w=1500&q=85" alt="Cave wall texture representing early visual communication" loading="lazy">
+          <div class="era-number">01</div><div class="media-caption">40,000 BCE → 3,500 BCE</div>
         </div>
-      </div>
-      <div class="detail-cards">
-        <article><strong data-i="typePage">TYPE → PAGE</strong><p data-i="typePageDesc">Typesetting assembles text into a reproducible form. Ink and mechanical pressure then transfer that form onto paper.</p></article>
-        <article><strong data-i="textSignal">TEXT → SIGNAL</strong><p data-i="textSignalDesc">Telegraphy represents characters as coded pulses, allowing information to travel electrically rather than waiting for the physical document to arrive.</p></article>
-        <article><strong data-i="voiceBroadcast">VOICE → BROADCAST</strong><p data-i="voiceBroadcastDesc">Radio converts programme audio into a transmitted electromagnetic signal that many receivers can tune into.</p></article>
-      </div>
-    </section>
-
-    <section class="image-break middle-break" aria-hidden="true"><div><span>FROM PRINT</span><strong>TO LIVE BROADCAST</strong></div></section>
-
-    <section id="modern" class="era modern" tabindex="-1">
-      <div class="era-copy">
-        <p class="tag" data-i="modernTag">03 · NETWORKED COMMUNICATION</p>
-        <h2 data-i="modernEra">Modern Era</h2>
-        <h3 data-i="networked">Everything becomes networked.</h3>
-        <p data-i="modernP1">Modern communication converts text, voice, images and video into digital data. Mobile and internet networks can move that data between people, devices and services at near-instant speed, while cloud platforms keep information available across multiple devices.</p>
-        <p data-i="modernP2">The major shift is convergence: tools that once required separate media now operate through shared digital infrastructure. AI adds another layer by helping systems generate, translate, summarize, search and reorganize information.</p>
-      </div>
-      <div class="photo-grid">
-        <figure class="photo-card modern-photo">
-          <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/LotusTower_Colombo.jpg?width=1200" width="1200" height="900" alt="Lotus Tower in Colombo" data-fallback="Lotus Tower image unavailable">
-          <figcaption><b data-i="lotusTitle">Colombo’s changing communications landscape</b><span data-i="lotusDesc">The Lotus Tower is a highly visible part of modern Colombo. In this exhibition it marks the transition to an era defined by large-scale electronic and digital communications infrastructure.</span></figcaption>
-        </figure>
-        <figure class="photo-card">
-          <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Point_Pedro_Lighthouse_along_with_telecommunication_tower.JPG?width=1000" width="1000" height="750" alt="Telecommunication tower at Point Pedro in Sri Lanka" data-fallback="Point Pedro telecommunication image unavailable">
-          <figcaption><b data-i="towerTitle">Wireless infrastructure · Point Pedro</b><span data-i="towerDesc">Telecommunication towers form the physical layer behind wireless connectivity, linking radio equipment and network systems to the devices people carry.</span></figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="artifact-story modern-story">
-      <div class="artifact-copy">
-        <p class="tag" data-i="networkTag">THE NETWORK LAYER</p>
-        <h2 data-i="dataTitle">The message becomes data.</h2>
-        <p data-i="dataDesc">A digital message can be copied without changing the original, routed through many networks, stored in multiple locations and presented as text, sound, image or video. The same infrastructure can support private conversations, mass publishing and many-to-many communities.</p>
-        <div class="fact-row">
-          <span><b data-i="speed">Speed</b><span data-i="instant">Near-instant</span></span>
-          <span><b data-i="reach">Reach</b><span data-i="global">Global</span></span>
-          <span><b data-i="media">Media</b><span data-i="converged">Converged</span></span>
+        <div class="era-copy reveal delay-1">
+          <p class="eyebrow">ERA 01</p>
+          <h2 data-en="Early Era" data-si="ප්‍රාථමික යුගය">Early Era</h2>
+          <h3 data-en="Before writing, humans communicated through the body, sound and visual marks." data-si="ලේඛනයට පෙර මිනිසා ශරීර සංඥා, ශබ්ද සහ දෘශ්‍ය සලකුණු මගින් සන්නිවේදනය කළේය.">Before writing, humans communicated through the body, sound and visual marks.</h3>
+          <p data-en="Gestures, facial expressions and vocal calls carried immediate meaning. Cave paintings made information persistent for the first time, while rhythm and drums helped communities transmit recognizable patterns across distance." data-si="අභිනයන්, මුහුණේ ඉරියව් සහ හඬ සංඥා ක්ෂණික අර්ථ ගෙන ගියේය. ගුහා චිත්‍ර මගින් තොරතුරු පළමු වරට කාලය ඉක්මවා තබාගත හැකි වූ අතර බෙර තාල මගින් දුරස්ථ ප්‍රජාවන් අතර හඳුනාගත හැකි රටා පණිවිඩ වශයෙන් ගෙන ගියේය.">Gestures, facial expressions and vocal calls carried immediate meaning. Cave paintings made information persistent for the first time, while rhythm and drums helped communities transmit recognizable patterns across distance.</p>
+          <div class="artifact-strip" aria-label="Early communication artifacts">
+            <div class="artifact"><span class="artifact-icon">☝</span><b>Gesture</b><small>body language</small></div>
+            <div class="artifact"><span class="artifact-icon">◒</span><b>Cave art</b><small>persistent symbols</small></div>
+            <div class="artifact"><span class="artifact-icon">◉</span><b>Drums</b><small>distance rhythm</small></div>
+          </div>
+          <div class="fact-grid">
+            <div><small>KEY MEDIUM</small><strong data-en="Cave art" data-si="ගුහා චිත්‍ර">Cave art</strong></div>
+            <div><small>CORE IDEA</small><strong data-en="Symbols" data-si="සංකේත">Symbols</strong></div>
+          </div>
         </div>
-      </div>
-      <div class="detail-cards">
-        <article><strong data-i="device">DEVICE</strong><p data-i="deviceDesc">The phone becomes camera, microphone, editor, archive, receiver and transmitter in a single interface.</p></article>
-        <article><strong data-i="network">NETWORK</strong><p data-i="networkDesc">Information is divided into digital data and routed through wired and wireless infrastructure toward its destination.</p></article>
-        <article><strong data-i="cloudAi">CLOUD + AI</strong><p data-i="cloudAiDesc">Connected services synchronize information, while intelligent software can search, transform, translate and generate content.</p></article>
-      </div>
+      </article>
+
+      <article class="era era-writing" id="era-2" data-era="02">
+        <div class="era-media reveal">
+          <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=1500&q=85" alt="Old manuscript and book representing the writing era" loading="lazy">
+          <div class="era-number">02</div><div class="media-caption">3,400 BCE → 1400 CE</div>
+        </div>
+        <div class="era-copy reveal delay-1">
+          <p class="eyebrow">ERA 02</p>
+          <h2 data-en="Writing Era" data-si="ලේඛන යුගය">Writing Era</h2>
+          <h3 data-en="Writing gave memory to civilization." data-si="ලේඛනය ශිෂ්ටාචාරයට දිගුකාලීන මතකයක් ලබා දුන්නේය.">Writing gave memory to civilization.</h3>
+          <p data-en="Cuneiform, hieroglyphics, alphabets and manuscripts allowed law, trade, religion, science and history to be recorded. Clay tablets gave way to papyrus, parchment, ola leaves and paper — making knowledge increasingly portable." data-si="කුනියෆෝම්, හයිරොග්ලිෆික්, අක්ෂරමාලා සහ අත්පිටපත් මගින් නීතිය, වෙළඳාම, ආගම, විද්‍යාව සහ ඉතිහාසය සටහන් කළ හැකි විය. මැටි පුවරු පසුව පැපිරස්, පර්චමන්ට්, පුස්කොළ සහ කඩදාසි වෙත පරිණාමය විය.">Cuneiform, hieroglyphics, alphabets and manuscripts allowed law, trade, religion, science and history to be recorded. Clay tablets gave way to papyrus, parchment, ola leaves and paper — making knowledge increasingly portable.</p>
+          <div class="artifact-strip"><div class="artifact"><span class="artifact-icon">▰</span><b>Tablet</b><small>inscribed records</small></div><div class="artifact"><span class="artifact-icon">✎</span><b>Alphabet</b><small>coded language</small></div><div class="artifact"><span class="artifact-icon">▱</span><b>Manuscript</b><small>portable knowledge</small></div></div>
+          <div class="fact-grid"><div><small>BREAKTHROUGH</small><strong data-en="Writing" data-si="ලේඛනය">Writing</strong></div><div><small>IMPACT</small><strong data-en="Recorded memory" data-si="සටහන් කළ මතකය">Recorded memory</strong></div></div>
+        </div>
+      </article>
+
+      <article class="era era-print" id="era-3" data-era="03">
+        <div class="era-media reveal"><img src="https://images.unsplash.com/photo-1589998059171-988d887df646?auto=format&fit=crop&w=1500&q=85" alt="Printing press and printed pages" loading="lazy"><div class="era-number">03</div><div class="media-caption">1450 → 1800s</div></div>
+        <div class="era-copy reveal delay-1"><p class="eyebrow">ERA 03</p><h2 data-en="Print Era" data-si="මුද්‍රණ යුගය">Print Era</h2><h3 data-en="One message could suddenly reach thousands." data-si="එකම පණිවිඩයක් හදිසියේම දහස් ගණනකට ළඟා විය හැකි විය.">One message could suddenly reach thousands.</h3><p data-en="Movable type and mechanical printing dramatically reduced the cost of reproducing information. Books, newspapers, posters and pamphlets created mass audiences and accelerated education, politics, commerce and science." data-si="චලන අක්ෂර සහ යාන්ත්‍රික මුද්‍රණය තොරතුරු පිටපත් කිරීමේ පිරිවැය විශාල ලෙස අඩු කළේය. පොත්, පුවත්පත්, පෝස්ටර් සහ පත්‍රිකා විශාල ප්‍රේක්ෂක පිරිසක් නිර්මාණය කළ අතර අධ්‍යාපනය, දේශපාලනය, වෙළඳාම සහ විද්‍යාව වේගවත් කළේය.">Movable type and mechanical printing dramatically reduced the cost of reproducing information. Books, newspapers, posters and pamphlets created mass audiences and accelerated education, politics, commerce and science.</p><div class="artifact-strip"><div class="artifact"><span class="artifact-icon">▦</span><b>Press</b><small>mechanical copying</small></div><div class="artifact"><span class="artifact-icon">▤</span><b>Newspaper</b><small>mass information</small></div><div class="artifact"><span class="artifact-icon">▣</span><b>Poster</b><small>public messaging</small></div></div><div class="fact-grid"><div><small>SHIFT</small><strong>1 → MANY</strong></div><div><small>RESULT</small><strong data-en="Mass media" data-si="ජනමාධ්‍ය">Mass media</strong></div></div></div>
+      </article>
+
+      <article class="era era-electronic" id="era-4" data-era="04">
+        <div class="era-media reveal"><img src="https://images.unsplash.com/photo-1593078166033-13294b1b03b8?auto=format&fit=crop&w=1500&q=85" alt="Vintage radio and electronic communication technology" loading="lazy"><div class="era-number">04</div><div class="media-caption">1830s → 1990s</div></div>
+        <div class="era-copy reveal delay-1"><p class="eyebrow">ERA 04</p><h2 data-en="Electronic Era" data-si="ඉලෙක්ට්‍රොනික යුගය">Electronic Era</h2><h3 data-en="Distance stopped controlling the speed of a message." data-si="පණිවිඩයක වේගය තීරණය කිරීමට දුර තවදුරටත් ප්‍රධාන බාධකයක් නොවීය.">Distance stopped controlling the speed of a message.</h3><p data-en="Telegraphy converted words into electrical pulses. The telephone carried the human voice, radio broadcast sound to entire regions and television added moving images. Satellites then made live global communication practical." data-si="ටෙලිග්‍රාෆ් පද්ධති වචන විද්‍යුත් ස්පන්දන බවට පත් කළේය. දුරකථනය මිනිස් හඬ ගෙන ගිය අතර ගුවන්විදුලිය ප්‍රදේශ පුරා ශබ්දය විකාශය කළේය; රූපවාහිනිය චලන රූප එක් කළේය. පසුව චන්ද්‍රිකා සජීවී ගෝලීය සන්නිවේදනය හැකි කළේය.">Telegraphy converted words into electrical pulses. The telephone carried the human voice, radio broadcast sound to entire regions and television added moving images. Satellites then made live global communication practical.</p><div class="artifact-strip"><div class="artifact"><span class="artifact-icon">··–</span><b>Telegraph</b><small>coded electricity</small></div><div class="artifact"><span class="artifact-icon">☎</span><b>Telephone</b><small>voice at distance</small></div><div class="artifact"><span class="artifact-icon">⌁</span><b>Radio</b><small>wireless broadcast</small></div></div><div class="fact-grid"><div><small>KEY SIGNAL</small><strong data-en="Electricity" data-si="විදුලිය">Electricity</strong></div><div><small>NEW SCALE</small><strong data-en="Global" data-si="ගෝලීය">Global</strong></div></div></div>
+      </article>
+
+      <article class="era era-digital" id="era-5" data-era="05">
+        <div class="era-media reveal"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1500&q=85" alt="Modern digital circuitry representing internet and AI" loading="lazy"><div class="era-number">05</div><div class="media-caption">1990s → NOW</div></div>
+        <div class="era-copy reveal delay-1"><p class="eyebrow">ERA 05</p><h2 data-en="Digital + AI Era" data-si="ඩිජිටල් + AI යුගය">Digital + AI Era</h2><h3 data-en="Every medium converged into connected software." data-si="සියලුම මාධ්‍ය සම්බන්ධිත මෘදුකාංග පද්ධති තුළ ඒකාබද්ධ විය.">Every medium converged into connected software.</h3><p data-en="The web, email, mobile phones, social platforms, video calls and cloud services merged text, audio, image and video into digital networks. Artificial intelligence now adds translation, generation, search, recommendation and automated understanding to communication." data-si="වෙබ්, ඊමේල්, ජංගම දුරකථන, සමාජ ජාල, වීඩියෝ ඇමතුම් සහ ක්ලවුඩ් සේවා පෙළ, ශබ්ද, රූප සහ වීඩියෝ ඩිජිටල් ජාල තුළ ඒකාබද්ධ කළේය. කෘත්‍රිම බුද්ධිය දැන් පරිවර්තනය, නිර්මාණය, සෙවීම, නිර්දේශ සහ ස්වයංක්‍රීය අවබෝධය එක් කරයි.">The web, email, mobile phones, social platforms, video calls and cloud services merged text, audio, image and video into digital networks. Artificial intelligence now adds translation, generation, search, recommendation and automated understanding to communication.</p><div class="artifact-strip"><div class="artifact"><span class="artifact-icon">◎</span><b>Internet</b><small>network of networks</small></div><div class="artifact"><span class="artifact-icon">▯</span><b>Mobile</b><small>always connected</small></div><div class="artifact featured"><span class="artifact-icon">✦</span><b>AI</b><small>intelligent media</small></div></div><div class="fact-grid"><div><small>FORMAT</small><strong data-en="Digital data" data-si="ඩිජිටල් දත්ත">Digital data</strong></div><div><small>NEXT LAYER</small><strong>AI</strong></div></div></div>
+      </article>
+    </section>
+
+    <section class="tools section" id="tools">
+      <div class="section-heading reveal"><p class="eyebrow">INTERACTIVE LAB</p><h2 data-en="See how a message changes its form." data-si="එකම පණිවිඩයක් විවිධ ආකාරවලට වෙනස් වන හැටි බලන්න.">See how a message changes its form.</h2><p data-en="Type a short message and compare two classic machine-readable representations." data-si="කෙටි පණිවිඩයක් ටයිප් කර යන්ත්‍රයෙන් කියවිය හැකි සම්ප්‍රදායික නිරූපණ දෙකක් සසඳන්න.">Type a short message and compare two classic machine-readable representations.</p></div>
+      <div class="converter reveal delay-1"><label for="encodeInput">MESSAGE</label><input id="encodeInput" value="HELLO" maxlength="80" autocomplete="off"><div class="output-grid"><div><small>MORSE CODE</small><code id="morseOutput"></code></div><div><small>BINARY</small><code id="binaryOutput"></code></div></div></div>
+    </section>
+
+    <section class="quiz section" id="quiz">
+      <div class="quiz-head reveal"><div><p class="eyebrow">KNOWLEDGE CHECK</p><h2 data-en="Can you follow the signal?" data-si="ඔබට සංඥාව හඹා යා හැකිද?">Can you follow the signal?</h2></div><div class="score-ring"><strong id="scoreValue">0</strong><span>/ 5</span></div></div>
+      <form id="quizForm" class="quiz-list reveal delay-1">
+        <fieldset data-answer="b"><legend><span>01</span><b>Which development first made information persistent beyond speech?</b></legend><label><input type="radio" name="q1" value="a"> Radio</label><label><input type="radio" name="q1" value="b"> Visual marks / writing</label><label><input type="radio" name="q1" value="c"> Telephone</label></fieldset>
+        <fieldset data-answer="c"><legend><span>02</span><b>What changed communication into mass reproducible media?</b></legend><label><input type="radio" name="q2" value="a"> Drums</label><label><input type="radio" name="q2" value="b"> Satellites</label><label><input type="radio" name="q2" value="c"> Printing</label></fieldset>
+        <fieldset data-answer="a"><legend><span>03</span><b>Morse code is most closely associated with which technology?</b></legend><label><input type="radio" name="q3" value="a"> Telegraph</label><label><input type="radio" name="q3" value="b"> Television</label><label><input type="radio" name="q3" value="c"> Social media</label></fieldset>
+        <fieldset data-answer="b"><legend><span>04</span><b>Which era made near-instant voice communication over distance practical?</b></legend><label><input type="radio" name="q4" value="a"> Writing era</label><label><input type="radio" name="q4" value="b"> Electronic era</label><label><input type="radio" name="q4" value="c"> Early era</label></fieldset>
+        <fieldset data-answer="c"><legend><span>05</span><b>What is the defining feature of today's communication environment?</b></legend><label><input type="radio" name="q5" value="a"> One-way print only</label><label><input type="radio" name="q5" value="b"> Local-only signals</label><label><input type="radio" name="q5" value="c"> Connected digital + AI systems</label></fieldset>
+        <div class="quiz-footer"><button class="btn primary" type="submit">CHECK SCORE</button><p id="quizMessage" aria-live="polite"></p></div>
+      </form>
     </section>
   </main>
 
-  <div class="modal" id="time" role="dialog" aria-modal="true" aria-labelledby="timeTitle" aria-hidden="true">
-    <div class="panel" tabindex="-1">
-      <button class="close" type="button" aria-label="Close dialog">×</button>
-      <p class="tag" data-i="experience">Exhibition experience</p>
-      <h2 id="timeTitle" data-i="tm">Communication Time Machine</h2>
-      <label for="message" class="sr-only" data-i="messageLabel">Message to transmit</label>
-      <input id="message" maxlength="80" placeholder="Meet me at the exhibition" data-placeholder-i="messagePlaceholder" autocomplete="off">
-      <button id="transmit" type="button" data-i="sendTime">Send through time →</button>
-      <p class="microcopy" data-i="morseNote">Middle-era Morse supports Latin A–Z. Other characters are shown as Unicode code points instead of disappearing.</p>
-      <div class="transmissions" aria-live="polite">
-        <div><b data-i="ancientEra">Ancient Era</b><code id="aOut">Waiting…</code></div>
-        <div><b data-i="middleEra">Middle Era</b><code id="mOut">Waiting…</code></div>
-        <div><b data-i="modernEra">Modern Era</b><code id="dOut">Waiting…</code><small id="dTrunc" hidden data-i="truncated">Output shortened for display.</small></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal" id="challenge" role="dialog" aria-modal="true" aria-labelledby="challengeTitle" aria-hidden="true">
-    <div class="panel" tabindex="-1">
-      <button class="close" type="button" aria-label="Close dialog">×</button>
-      <p class="tag" data-i="experience">Exhibition experience</p>
-      <h2 id="challengeTitle" data-i="challenge">60-second Communication Challenge</h2>
-      <div class="score" aria-live="polite">
-        <b id="timer">60</b><span data-i="seconds">seconds</span>
-        <b id="points">0</b><span data-i="points">points</span>
-      </div>
-      <div id="quiz"></div>
-      <button id="begin" type="button" data-i="begin">Begin challenge</button>
-    </div>
-  </div>
-
-  <div id="toast" role="status" aria-live="polite"></div>
-  <footer>Signal Lanka · Ancient → Middle → Modern</footer>
+  <footer><div class="brand-mark">EC</div><div><b>Evolution of Communication</b><small>Interactive Exhibition · 2026</small></div><a class="back-top" href="#top">BACK TO TOP ↑</a></footer>
+  <script src="app.js"></script>
 </body>
 </html>
